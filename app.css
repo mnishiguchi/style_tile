@@ -7,37 +7,54 @@
   padding:0;
   box-sizing: border-box;
 }
-
-h1,h2,h3,h4,h5,h6 { };
-small {}
-
-
-nav.navbar {
+nav.top-nav {
+  line-height: 80px;
   height: 80px;
   margin-bottom: 40px;
+  background: #333333;
 }
-
-.wrapper {
+nav.top-nav .logoImg {
+  display: inline-block;
+  float: left;
+  margin-right: 16px;
+}
+nav.top-nav .projectName {
+  display: inline-block;
+  float: left;
+  line-height: 80px;
+  height: 80px;
+  font-size: 2.0em;
+  color: #CCCCCC;
+}
+.col-wrapper {
   margin-bottom: 40px;
 }
-
-.category {
+.tiles {
   padding-bottom: 150px;
 }
-label {
-  display: block;
-  font-size: 2.0em;
-  font-weight: 300;
+.buttons {
+  padding-bottom: 20px;
 }
-
-.color,
-.texture {
+.color {
   display: block;
   float: left;
   width: 20%;
   height: 120px;
   color: white;
   text-align: center;
+  border: 3px solid white;
+}
+.texture {
+  display: block;
+  float: left;
+  width: 33.33%;
+  height: 120px;
+  color: white;
+  text-align: center;
+  border: 3px solid white;
+}
+.adjective {
+  font-size: 2.0em;
 }
 footer {
   padding-top: 10px;

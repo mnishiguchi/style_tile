@@ -17,34 +17,16 @@
   <!-- Load AngularJS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js"></script>
 
-  <!--
-    Set typography
-    -->
-  <style>
-    h1 {}
-    h2 {}
-    h3 {}
-    h4 {}
-    h5 {}
-    h6 {}
-    p {
+  <!--=====================================================-->
 
-    }
-    #logo {
-
-    }
-    nav.navbar {
-      background: #555555;
-    }
-  </style>
-
-  <!--
-    Set colors, textures and buttons
-    -->
+  <!-- Configure style tiles -->
   <script>
   (function() {
     angular.module( "app", [] );
     angular.module( "app" ).controller( "AppController", function() {
+
+      // Project name
+      this.projectName = "My first project"
 
       // A list of colors (e.g., #333, red)
       this.colors = [
@@ -57,11 +39,9 @@
 
       // A list of image source URLs or filepaths
       this.textures = [
-        "http://placehold.it/80/985743/ffffff?text=A",
-        "http://placehold.it/80/985743/ffffff?text=B",
-        "http://placehold.it/80/985743/ffffff?text=C",
-        "http://placehold.it/80/985743/ffffff?text=D",
-        "http://placehold.it/80/985743/ffffff?text=E",
+        "http://placehold.it/80/999999/ffffff?text=A",
+        "http://placehold.it/80/999999/ffffff?text=B",
+        "http://placehold.it/80/999999/ffffff?text=C",
       ];
 
       // A list of styles for buttons
@@ -88,9 +68,49 @@
         },
       ];
 
+      this.h1 = {
+        fontFamily: "Open Sans",
+        color     : "red"
+      };
+      this.h2 = {
+        fontFamily: "Open Sans",
+        color     : "blue"
+      };
+      this.h3 = {
+        fontFamily: "Open Sans",
+        color     : "blue"
+      };
+      this.h4 = {
+        fontFamily: "Open Sans",
+        color     : "blue"
+      };
+      this.p = {
+        fontFamily: "Open Sans",
+        color     : "blue"
+      };
+      this.a = {
+        fontFamily: "Open Sans",
+        color     : "blue"
+      };
+      this.adjectives = [
+        {
+          name: "Happy",
+          css: {
+            color: "salmon"
+          }
+        },
+        {
+          name: "Exciting",
+          css: {
+            color: "red"
+          }
+        },
+      ];
     }); // end AppController
   })(); // end module
   </script>
+
+  <!--=====================================================-->
 </head>
 
 <body>
@@ -98,18 +118,18 @@
   <div class="container">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-inverse">
+    <nav class="top-nav">
       <div class="container">
-        <div id="logo">LOGO</div>
+        <img class="logoImg" src="http://placehold.it/80?text=LOGO" />
+        <div class="projectName">{{ app.projectName }}</div>
       </div>
     </nav>
 
     <div class="row">
       <!-- LHS -->
       <section>
-        <div class="col-md-6 wrapper">
-          <div class="category">
-           <label>Colors</label>
+        <div class="col-md-6 col-wrapper">
+          <div class="tiles">
             <div
               class="color"
               ng-repeat="color in app.colors"
@@ -117,40 +137,56 @@
               {{ color }}
             </div>
           </div>
-          <div class="category">
-            <label>Texures</label>
+          <div class="tiles">
             <img
               class="texture"
               ng-repeat="texture in app.textures"
               ng-src="{{ texture }}" />
           </div>
-          <div class="category">
-            <label>Buttons</label>
+          <div class="buttons">
             <button
               class="button"
               ng-repeat="button in app.buttons"
               ng-style="button.css">{{ button.name }}
             </button>
           </div>
+
+          <hr>
+
+          <div class="adjectives">
+            <span
+              class="adjective"
+              ng-repeat="adjective in app.adjectives" >
+              {{ adjective.name }}
+            </span>
+          </div>
+
+          <hr>
+
         </div>
       </section>
       <!-- RHS -->
       <section>
-        <label>Headings and paragraphs</label>
-        <div class="col-md-6 wrapper">
-          <h1>h1 heading</h1><small>Name: {{ app.h1.fontFamily }} Hexcode: {{ app.h1.hexcode }}</small><hr>
-          <h2>h2 heading</h2><small>Name: {{ app.h2.fontFamily }} Hexcode: {{ app.h2.hexcode }}</small><hr>
-          <h3>h3 heading</h3><small>Name: {{ app.h3.fontFamily }} Hexcode: {{ app.h3.hexcode }}</small><hr>
-          <h4>h4 heading</h4><small>Name: {{ app.h4.fontFamily }} Hexcode: {{ app.h4.hexcode }}</small><hr>
-          <h5>h5 heading</h5><small>Name: {{ app.h5.fontFamily }} Hexcode: {{ app.h5.hexcode }}</small><hr>
-          <h6>h6 heading</h6><small>Name: {{ app.h6.fontFamily }} Hexcode: {{ app.h6.hexcode }}</small><hr>
-          <p>
+        <div class="col-md-6 col-wrapper">
+          <h1 ng-style="app.h1">This is a H1 heading</h1><small>Name: {{ app.h1.fontFamily }} Hexcode: {{ app.h1.color }}</small><hr>
+          <h2 ng-style="app.h2">A sub-heading</h2><small>Name: {{ app.h2.fontFamily }} Hexcode: {{ app.h2.color }}</small><hr>
+
+          <p ng-style="app.p">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus
             magni, commodi eius aspernatur, pariatur nemo eum minus dolores fuga
             officiis facilis eveniet laudantium et non aliquam! Dolor cupiditate,
             dolore blanditiis!
           </p>
-          <small>Name: {{ app.p.fontFamily }} Hexcode: {{ app.p.hexcode }}</small>
+          <small>Name: {{ app.p.fontFamily }} Hexcode: {{ app.p.color }}</small>
+
+          <hr>
+
+          <a href="#">A hypertext link</a>
+          <br>
+          <small>Name: {{ app.a.fontFamily }} Hexcode: {{ app.a.color }}</small>
+
+          <hr>
+
         </div>
       </section>
 
