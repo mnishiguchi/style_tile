@@ -1,0 +1,48 @@
+/* Basic styles */
+
+/** { border: 1px dotted red; }*/
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 { };
+small {}
+
+
+nav.navbar {
+  height: 80px;
+  margin-bottom: 40px;
+}
+
+.wrapper {
+  margin-bottom: 40px;
+}
+
+.category {
+  padding-bottom: 150px;
+}
+label {
+  display: block;
+  font-size: 2.0em;
+  font-weight: 300;
+}
+
+.color,
+.texture {
+  display: block;
+  float: left;
+  width: 20%;
+  height: 120px;
+  color: white;
+  text-align: center;
+}
+footer {
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+button {
+  margin-right: 5%;
+}

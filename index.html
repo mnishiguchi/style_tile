@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  ng-app="app"
+  ng-controller="AppController as app" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>My style tile</title>
+
+  <!-- Load Google fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <!-- Load Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha256-xWeRKjzyg6bep9D1AsHzUPEWHbWMzlRc84Z0aG+tyms= sha512-mGIRU0bcPaVjr7BceESkC37zD6sEccxE+RJyQABbbKNe83Y68+PyPM5nrE1zvbQZkSHDCJEtnAcodbhlq2/EkQ==" crossorigin="anonymous">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="app.css">
+  <!-- Load AngularJS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js"></script>
+
+  <!--
+    Set typography
+    -->
+  <style>
+    h1 {}
+    h2 {}
+    h3 {}
+    h4 {}
+    h5 {}
+    h6 {}
+    p {
+
+    }
+    #logo {
+
+    }
+    nav.navbar {
+      background: #555555;
+    }
+  </style>
+
+  <!--
+    Set colors, textures and buttons
+    -->
+  <script>
+  (function() {
+    angular.module( "app", [] );
+    angular.module( "app" ).controller( "AppController", function() {
+
+      // A list of colors (e.g., #333, red)
+      this.colors = [
+        "#171717",
+        "#272727",
+        "#383838",
+        "#494949",
+        "#696969",
+      ];
+
+      // A list of image source URLs or filepaths
+      this.textures = [
+        "http://placehold.it/80/985743/ffffff?text=A",
+        "http://placehold.it/80/985743/ffffff?text=B",
+        "http://placehold.it/80/985743/ffffff?text=C",
+        "http://placehold.it/80/985743/ffffff?text=D",
+        "http://placehold.it/80/985743/ffffff?text=E",
+      ];
+
+      // A list of styles for buttons
+      this.buttons = [
+        {
+          name: "default",
+          css: {
+            'color'        : "#999",
+            'background'   : "#29a",
+            'border-radius': "10px",
+            'width'        : "80px",
+            'height'       : "30px"
+          }
+        },
+        {
+          name: "submit",
+          css: {
+            'color'        : "abc",
+            'background'   : "#666",
+            'border-radius': "10px",
+            'width'        : "80px",
+            'height'       : "30px"
+          }
+        },
+      ];
+
+    }); // end AppController
+  })(); // end module
+  </script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-inverse">
+      <div class="container">
+        <div id="logo">LOGO</div>
+      </div>
+    </nav>
+
+    <div class="row">
+      <!-- LHS -->
+      <section>
+        <div class="col-md-6 wrapper">
+          <div class="category">
+           <label>Colors</label>
+            <div
+              class="color"
+              ng-repeat="color in app.colors"
+              ng-style="{ background: color }">
+              {{ color }}
+            </div>
+          </div>
+          <div class="category">
+            <label>Texures</label>
+            <img
+              class="texture"
+              ng-repeat="texture in app.textures"
+              ng-src="{{ texture }}" />
+          </div>
+          <div class="category">
+            <label>Buttons</label>
+            <button
+              class="button"
+              ng-repeat="button in app.buttons"
+              ng-style="button.css">{{ button.name }}
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- RHS -->
+      <section>
+        <label>Headings and paragraphs</label>
+        <div class="col-md-6 wrapper">
+          <h1>h1 heading</h1><small>Name: {{ app.h1.fontFamily }} Hexcode: {{ app.h1.hexcode }}</small><hr>
+          <h2>h2 heading</h2><small>Name: {{ app.h2.fontFamily }} Hexcode: {{ app.h2.hexcode }}</small><hr>
+          <h3>h3 heading</h3><small>Name: {{ app.h3.fontFamily }} Hexcode: {{ app.h3.hexcode }}</small><hr>
+          <h4>h4 heading</h4><small>Name: {{ app.h4.fontFamily }} Hexcode: {{ app.h4.hexcode }}</small><hr>
+          <h5>h5 heading</h5><small>Name: {{ app.h5.fontFamily }} Hexcode: {{ app.h5.hexcode }}</small><hr>
+          <h6>h6 heading</h6><small>Name: {{ app.h6.fontFamily }} Hexcode: {{ app.h6.hexcode }}</small><hr>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus
+            magni, commodi eius aspernatur, pariatur nemo eum minus dolores fuga
+            officiis facilis eveniet laudantium et non aliquam! Dolor cupiditate,
+            dolore blanditiis!
+          </p>
+          <small>Name: {{ app.p.fontFamily }} Hexcode: {{ app.p.hexcode }}</small>
+        </div>
+      </section>
+
+    </div>
+
+    <hr class="m-y-2">
+
+    <footer>
+      <small class="text-muted">
+        Designed by Masatoshi Nishiguchi
+      </small>
+    </footer>
+  </div><!-- /.container -->
+</body>
+</html>
