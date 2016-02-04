@@ -11,12 +11,14 @@ nav.top-nav {
   line-height: 80px;
   height: 80px;
   margin-bottom: 40px;
-  background: #333333;
+  background: #000000;
 }
 nav.top-nav .logoImg {
   display: inline-block;
   float: left;
   margin-right: 16px;
+  width: auto;
+  height: 100px;
 }
 nav.top-nav .projectName {
   display: inline-block;
@@ -25,6 +27,9 @@ nav.top-nav .projectName {
   height: 80px;
   font-size: 2.0em;
   color: #CCCCCC;
+}
+.row {
+  clear: left;
 }
 .col-wrapper {
   margin-bottom: 40px;

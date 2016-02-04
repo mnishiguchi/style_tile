@@ -26,83 +26,99 @@
     angular.module( "app" ).controller( "AppController", function() {
 
       // Project name
-      this.projectName = "My first project"
+      this.projectName = "Monkeys"
+
+
+      // Logo
+      this.logoUrl = "";
 
       // A list of colors (e.g., #333, red)
       this.colors = [
-        "#171717",
-        "#272727",
-        "#383838",
-        "#494949",
-        "#696969",
+        "#dfbf9f",
+        "#756657",
+        "#663f1a",
+        "#339933",
+        "#206020",
       ];
 
       // A list of image source URLs or filepaths
       this.textures = [
-        "http://placehold.it/80/999999/ffffff?text=A",
-        "http://placehold.it/80/999999/ffffff?text=B",
-        "http://placehold.it/80/999999/ffffff?text=C",
+        "img/family.jpg",
+        "img/Atelidae.jpg",
+        "img/Hylobatidae.jpg",
       ];
 
       // A list of styles for buttons
       this.buttons = [
-        {
-          name: "default",
-          css: {
-            'color'        : "#999",
-            'background'   : "#29a",
-            'border-radius': "10px",
-            'width'        : "80px",
-            'height'       : "30px"
-          }
-        },
-        {
-          name: "submit",
-          css: {
-            'color'        : "abc",
-            'background'   : "#666",
-            'border-radius': "10px",
-            'width'        : "80px",
-            'height'       : "30px"
-          }
-        },
+        // {
+        //   name: "default",
+        //   css: {
+        //     'color'        : "#ddd",
+        //     'background'   : "#999",
+        //     'border-radius': "10px",
+        //     'width'        : "80px",
+        //     'height'       : "30px"
+        //   }
+        // },
+        // {
+        //   name: "default",
+        //   css: {
+        //     'color'        : "#ddd",
+        //     'background'   : "#999",
+        //     'border-radius': "10px",
+        //     'width'        : "80px",
+        //     'height'       : "30px"
+        //   }
+        // },
+        // {
+        //   name: "default",
+        //   css: {
+        //     'color'        : "#ddd",
+        //     'background'   : "#999",
+        //     'border-radius': "10px",
+        //     'width'        : "80px",
+        //     'height'       : "30px"
+        //   }
+        // },
       ];
 
       this.h1 = {
         fontFamily: "Open Sans",
-        color     : "red"
+        color     : "#676767"
       };
       this.h2 = {
         fontFamily: "Open Sans",
-        color     : "blue"
+        color     : "#676767"
       };
       this.h3 = {
         fontFamily: "Open Sans",
-        color     : "blue"
+        color     : "#676767"
       };
       this.h4 = {
         fontFamily: "Open Sans",
-        color     : "blue"
+        color     : "#676767"
       };
       this.p = {
         fontFamily: "Open Sans",
-        color     : "blue"
+        color     : "#676767"
       };
       this.a = {
         fontFamily: "Open Sans",
-        color     : "blue"
+        color     : "#676767"
       };
       this.adjectives = [
         {
           name: "Happy",
           css: {
-            color: "salmon"
+            color: "salmon",
+            "font-weight": 300
           }
         },
         {
           name: "Exciting",
           css: {
-            color: "red"
+            color        : "red",
+            "font-weight": 300
           }
         },
       ];
@@ -120,7 +136,7 @@
     <!-- Navbar -->
     <nav class="top-nav">
       <div class="container">
-        <img class="logoImg" src="http://placehold.it/80?text=LOGO" />
+        <img class="logoImg" ng-src="{{ app.logoUrl }}" />
         <div class="projectName">{{ app.projectName }}</div>
       </div>
     </nav>
@@ -156,8 +172,8 @@
           <div class="adjectives">
             <span
               class="adjective"
-              ng-repeat="adjective in app.adjectives" >
-              {{ adjective.name }}
+              ng-repeat="adjective in app.adjectives"
+              ng-style="adjective.css"> {{ adjective.name }}
             </span>
           </div>
 
@@ -196,7 +212,8 @@
 
     <footer>
       <small class="text-muted">
-        Designed by Masatoshi Nishiguchi
+        Designed by
+        <a href="https://github.com/mnishiguchi">Masatoshi Nishiguchi</a>
       </small>
     </footer>
   </div><!-- /.container -->
